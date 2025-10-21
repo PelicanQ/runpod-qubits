@@ -37,7 +37,7 @@ def handler(event):
         only_energy=True,
     )
 
-    return {"test": 2, "a": "a", "b": [1, 2, 3]}
+    return {"even": [e for e in even], "odd": [o for o in odd]}
 
 
 if __name__ == "__main__":
