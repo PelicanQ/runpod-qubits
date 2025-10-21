@@ -33,8 +33,12 @@ def handler(event):
         only_energy=True,
     )
 
-    return {"energies": vals}
+    return {"energies": [v for v in vals]}
 
 
 if __name__ == "__main__":
     runpod.serverless.start({"handler": handler})
+
+# Checklist:
+# Reads key "input"
+# Returns Python types, not numpy
