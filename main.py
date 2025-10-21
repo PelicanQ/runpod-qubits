@@ -9,35 +9,31 @@ print("Cuda get_local_runtime_version: ", cp.cuda.get_local_runtime_version())
 
 def handler(event):
     print("Worker Start")
-    input = event["input"]
+    job = event["job"]
 
-    M = int(input.get("M"))
-
-    print(f"Received: {M}")
-
-    # Replace the sleep code with your Python function to generate images, text, or run any machine learning workload
+    print(f"Received: {job["M"]}")
     vals = eig_even_odd(
-        1,
-        1,
-        1,
-        1,
-        1,
-        50,
-        50,
-        50,
-        50,
-        50,
-        0.1,
-        0.1,
-        0.01,
-        0.1,
-        0.1,
-        0.01,
-        M=M,
+        job["Ec1"],
+        job["Ec2"],
+        job["Ec3"],
+        job["Ec4"],
+        job["Ej5"],
+        job["Ej1"],
+        job["Ej2"],
+        job["Ej3"],
+        job["Ej4"],
+        job["Ej5"],
+        job["Eint12"],
+        job["Eint23"],
+        job["Eint13"],
+        job["Eint34"],
+        job["Eint45"],
+        job["Eint35"],
+        M=job["M"],
         only_energy=True,
     )
 
-    return {"energies": [a for a in vals]}
+    return {"energies": vals}
 
 
 if __name__ == "__main__":

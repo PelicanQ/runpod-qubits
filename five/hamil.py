@@ -134,10 +134,11 @@ def eig_even_odd(
         H_even = cp.asarray(Deven + even12 + even23 + even13 + even34 + even45 + even35)
         vals_even = cp.linalg.eigvalsh(H_even)
         vals_even = cp.asnumpy(vals_even)
-
+        del H_even
         H_odd = cp.asarray(Dodd + odd12 + odd23 + odd13 + odd34 + odd45 + odd35)
         vals_odd = cp.linalg.eigvalsh(H_odd)
         vals_odd = cp.asnumpy(vals_odd)
+        del H_odd
 
         return np.sort(np.concatenate([vals_odd, vals_even]))
 
