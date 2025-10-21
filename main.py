@@ -1,21 +1,38 @@
 import runpod
-import time
+from five.hamil import eig_even_odd
 
 
 def handler(event):
     print("Worker Start")
     input = event["input"]
 
-    prompt = input.get("prompt")
-    seconds = input.get("seconds", 0)
+    M = int(input.get("M"))
 
-    print(f"Received prompt: {prompt}")
-    print(f"Sleeping for {seconds} seconds...")
+    print(f"Received: {M}")
 
     # Replace the sleep code with your Python function to generate images, text, or run any machine learning workload
-    time.sleep(seconds)
+    even, odd = eig_even_odd(
+        1,
+        1,
+        1,
+        1,
+        1,
+        50,
+        50,
+        50,
+        50,
+        50,
+        0.1,
+        0.1,
+        0.01,
+        0.1,
+        0.1,
+        0.01,
+        M=M,
+        only_energy=True,
+    )
 
-    return prompt
+    return even
 
 
 if __name__ == "__main__":
