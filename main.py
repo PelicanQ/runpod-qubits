@@ -1,5 +1,10 @@
 import runpod
 from five.hamil import eig_even_odd
+import cupy as cp
+
+print("Cuda driverGetVersion: ", cp.cuda.runtime.driverGetVersion())
+print("Cuda runtimeGetVersion: ", cp.cuda.runtime.runtimeGetVersion())
+print("Cuda get_local_runtime_version: ", cp.cuda.get_local_runtime_version())
 
 
 def handler(event):

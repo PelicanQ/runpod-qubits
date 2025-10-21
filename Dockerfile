@@ -1,9 +1,7 @@
-FROM nvidia/cuda:12.9.1-runtime-ubuntu24.04
+FROM runpod/base:1.0.2-cuda1281-ubuntu2404
 
 WORKDIR /
 
-RUN apt update 
-RUN apt install -y python3 python3-pip python3.12-venv
 
 COPY requirements.txt /requirements.txt
 RUN python3 -m venv .venv
