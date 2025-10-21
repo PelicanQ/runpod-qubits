@@ -9,7 +9,7 @@ print("Cuda get_local_runtime_version: ", cp.cuda.get_local_runtime_version())
 
 def handler(event):
     print("Worker Start")
-    job = event["job"]
+    job = event["input"]
 
     print(f"Received: {job["M"]}")
     vals = eig_even_odd(
