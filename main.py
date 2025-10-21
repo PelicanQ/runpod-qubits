@@ -16,7 +16,7 @@ def handler(event):
     print(f"Received: {M}")
 
     # Replace the sleep code with your Python function to generate images, text, or run any machine learning workload
-    even, odd = eig_even_odd(
+    vals = eig_even_odd(
         1,
         1,
         1,
@@ -37,7 +37,7 @@ def handler(event):
         only_energy=True,
     )
 
-    return {"even": [e for e in even], "odd": [o for o in odd]}
+    return {"energies": [a for a in vals]}
 
 
 if __name__ == "__main__":
